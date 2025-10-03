@@ -432,14 +432,12 @@ body {
 }
 
 .dev-avatar {
-    font-size: 3rem;
     min-width: 70px;
+    width: 70px;
     height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(212, 175, 55, 0.1);
     border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-gold);
 }
 
 .dev-info {
@@ -469,6 +467,88 @@ body {
     display: flex;
     align-items: center;
     gap: 0.25rem;
+}
+
+/* ========================================
+   Specialization Section
+   ======================================== */
+.specialization-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--dark);
+}
+
+.specialization-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.spec-card {
+    background: linear-gradient(145deg, rgba(30, 58, 138, 0.3), rgba(10, 36, 99, 0.3));
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.spec-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary-gold);
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+}
+
+.spec-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.spec-card h3 {
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.spec-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    flex: 1;
+}
+
+.spec-list li {
+    color: var(--gray-light);
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.spec-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-gold);
+    font-weight: bold;
+}
+
+.spec-link {
+    color: var(--secondary-gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-top: var(--spacing-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spec-link:hover {
+    color: var(--accent-gold);
+    transform: translateX(5px);
 }
 
 /* ========================================
