@@ -1,0 +1,23 @@
+{
+  "name": "lhs-global-digital",
+  "version": "1.0.0",
+  "description": "LHS Global Digital - AI-Powered IT Consulting",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ai",
+    "consulting",
+    "it-services"
+  ],
+  "author": "LHS Global Digital",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
