@@ -248,7 +248,19 @@ body {
 .hero-cta {
     display: flex;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-trust {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.trust-badge {
+    color: var(--secondary-gold);
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .btn {
@@ -313,6 +325,150 @@ body {
 .stat-label {
     color: var(--gray-light);
     font-size: 0.9rem;
+}
+
+/* ========================================
+   Hire Developer Section
+   ======================================== */
+.hire-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--gray-dark);
+}
+
+.hire-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.hire-description {
+    font-size: 1.1rem;
+    color: var(--gray-light);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+.hire-process {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.process-step {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    padding: var(--spacing-md);
+    background: rgba(30, 58, 138, 0.2);
+    border-radius: 15px;
+    border-left: 4px solid var(--primary-gold);
+    transition: var(--transition);
+}
+
+.process-step:hover {
+    background: rgba(30, 58, 138, 0.3);
+    transform: translateX(10px);
+    border-left-color: var(--secondary-gold);
+}
+
+.step-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 60px;
+}
+
+.step-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.step-content p {
+    color: var(--gray-light);
+    font-size: 0.95rem;
+}
+
+.hire-cta-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.hire-guarantee {
+    color: var(--gray-light);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-xs);
+}
+
+.developer-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.dev-card {
+    background: linear-gradient(145deg, rgba(30, 58, 138, 0.3), rgba(10, 36, 99, 0.3));
+    padding: var(--spacing-md);
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    transition: var(--transition);
+}
+
+.dev-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-gold);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.dev-avatar {
+    font-size: 3rem;
+    min-width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 50%;
+}
+
+.dev-info {
+    flex: 1;
+}
+
+.dev-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.dev-skills {
+    color: var(--gray-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.dev-stats {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.85rem;
+    color: var(--secondary-gold);
+}
+
+.dev-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 /* ========================================
@@ -819,6 +975,15 @@ body {
     .hero-stats {
         flex-direction: column;
         gap: var(--spacing-md);
+    }
+
+    .hero-trust {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .hire-content {
+        grid-template-columns: 1fr;
     }
 
     .about-content {
