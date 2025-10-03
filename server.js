@@ -4,8 +4,15 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Logging middleware
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+    next();
+});
+
 // Health check endpoint (must be before static files)
 app.get('/health', (req, res) => {
+    console.log('Health check requested');
     res.status(200).json({
         status: 'ok',
         timestamp: new Date().toISOString(),
@@ -47,6 +54,11 @@ const server = app.listen(PORT, '0.0.0.0', () => {
     console.log(`✅ Health check available at: http://localhost:${PORT}/health`);
 });
 
+// Keep-alive mechanism
+setInterval(() => {
+    console.log(`Server alive - Uptime: ${process.uptime().toFixed(2)}s`);
+}, 30000); // Log every 30 seconds
+
 // Graceful shutdown
 process.on('SIGTERM', () => {
     console.log('SIGTERM signal received: closing HTTP server');
@@ -62,4 +74,15 @@ process.on('SIGINT', () => {
         console.log('HTTP server closed');
         process.exit(0);
     });
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (error) => {
+    console.error('Uncaught Exception:', error);
+    process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+    process.exit(1);
 });
