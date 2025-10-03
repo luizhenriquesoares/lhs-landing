@@ -3,6 +3,12 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
+
+console.log('Starting LHS Global Digital server...');
+console.log('Environment:', process.env.NODE_ENV || 'development');
+console.log('Port:', PORT);
+console.log('Host:', HOST);
 
 // Logging middleware
 app.use((req, res, next) => {
@@ -47,11 +53,18 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-const server = app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 LHS Global Digital server running on port ${PORT}`);
+const server = app.listen(PORT, HOST, () => {
+    console.log(`🚀 LHS Global Digital server running on ${HOST}:${PORT}`);
     console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
-    console.log(`🌐 Access: http://localhost:${PORT}`);
-    console.log(`✅ Health check available at: http://localhost:${PORT}/health`);
+    console.log(`🌐 Access: http://${HOST}:${PORT}`);
+    console.log(`✅ Health check available at: http://${HOST}:${PORT}/health`);
+    console.log(`✅ Server is ready to accept connections`);
+});
+
+// Handle server errors
+server.on('error', (error) => {
+    console.error('Server error:', error);
+    process.exit(1);
 });
 
 // Keep-alive mechanism
