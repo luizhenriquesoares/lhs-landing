@@ -35,14 +35,22 @@ app.get('/api/status', (req, res) => {
     });
 });
 
-// Serve static files
+// Test endpoint
+app.get('/test', (req, res) => {
+    console.log('TEST endpoint hit!');
+    res.send('<h1>LHS Global Digital - Server is Working!</h1><p>If you see this, the server is responding correctly.</p>');
+});
+
+// Serve static files (excluding server files)
 app.use(express.static(path.join(__dirname), {
     maxAge: '1d',
-    etag: true
+    etag: true,
+    index: 'index.html'
 }));
 
 // Handle SPA routing - serve index.html for all routes
 app.get('*', (req, res) => {
+    console.log(`Serving index.html for: ${req.url}`);
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
